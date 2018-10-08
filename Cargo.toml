@@ -1,0 +1,9 @@
+[package]
+name = "pjproject-sys"
+version = "0.1.0"
+authors = ["Konstantin Baltruschat"]
+
+[build-dependencies]
+make-cmd = "0.1.0"
+bindgen = "0.42.0"
+cc = "1.0.25"
