@@ -129,15 +129,15 @@ fn compile_ssl() {
         .current_dir("./openssl/")
         .spawn().unwrap().wait().unwrap();
 
-    let mut c = Command::new("./Configure");
-
-    if env::var("TARGET").unwrap() != env::var("HOST").unwrap() {
+    let c = if env::var("TARGET").unwrap() != env::var("HOST").unwrap() {
+        let mut c = Command::new("./Configure");
         c.arg(format!("--cross-compile-prefix={}-", compiler_prefix()));
+        c.arg("linux-generic32");
+        c
     } else {
-        c.arg("--cross-compile-prefix=");
-    }
-
-    c.arg("linux-generic32");
+        let mut c = Command::new("./config");
+        c
+    };
 
     c.current_dir("./openssl/");
     c.spawn().unwrap().wait().unwrap();
