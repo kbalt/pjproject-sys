@@ -6,4 +6,4 @@ authors = ["Konstantin Baltruschat"]
 [build-dependencies]
 make-cmd = "0.1.0"
 bindgen = "0.42.0"
-cc = "1.0.25"
+cc = "1.0.23"
