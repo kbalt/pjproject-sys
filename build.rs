@@ -129,7 +129,7 @@ fn compile_ssl() {
         .current_dir("./openssl/")
         .spawn().unwrap().wait().unwrap();
 
-    let c = if env::var("TARGET").unwrap() != env::var("HOST").unwrap() {
+    let mut c = if env::var("TARGET").unwrap() != env::var("HOST").unwrap() {
         let mut c = Command::new("./Configure");
         c.arg(format!("--cross-compile-prefix={}-", compiler_prefix()));
         c.arg("linux-generic32");
