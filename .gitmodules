@@ -1,3 +1,6 @@
 [submodule "openssl"]
 	path = openssl
 	url = https://github.com/openssl/openssl.git
+[submodule "pjproject"]
+	path = pjproject
+	url = https://github.com/pjsip/pjproject.git
