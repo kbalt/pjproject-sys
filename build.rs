@@ -246,7 +246,7 @@ pub fn main() {
         .write(true)
         .read(true)
         .create(true)
-        .open("target")
+        .open("last-target-build-for")
         .unwrap();
 
     let mut last_target_str = String::new();
@@ -254,6 +254,7 @@ pub fn main() {
     target.read_to_string(&mut last_target_str).expect("Failed to read target!");
 
     if last_target_str != target_str || check_ssl_built_status().is_none() {
+        
         compile_ssl();
     }
 
